@@ -24,6 +24,8 @@ namespace generics
             Console.WriteLine(integer);
             float @float= maximum.Findmax(1.4f, 2.1f, 3.87f);
             Console.WriteLine(@float);
+            string @string= maximum.Findmax("Apple","peach","banana");
+            Console.WriteLine(@string);
         }
     }
 }
