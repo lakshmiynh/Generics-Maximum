@@ -1,26 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace generics
 {
-     class Maximum
+     class Maximum<T> where T : IComparable
     {
-        public int Findmax(int num1, int num2, int num3)
+    
+
+        public Maximum(params T[] values)
         {
-            int max = num1;
-            if (num2.CompareTo(max) > 0) max = num2; 
-            if (num3.CompareTo(max) > 0) max = num3;
-            return max;
+            Findmax(values);
+        }
+        public T? Findmax<T>(params T[] values) 
+        {
+           List<T> list = new List<T>();
+            foreach (T value in values) 
+            {
+                list.Add(value);
+            }
+            list.Sort();
+            Console.WriteLine($"the Maximum value is {list.Last()}");
+            return list.Last();
         }
        
-        static void Main(string[] args) 
-        {
-            Maximum integer = new Maximum();
-           int result= integer.Findmax(1, 2, 3);
-            Console.WriteLine(result);
-        }
+       
     }
 }
